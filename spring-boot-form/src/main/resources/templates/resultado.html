@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<section th:replace="components/tiempo :: interceptor"></section>
+	
+	<div  class="container">
+	<ul class="list-group">
+		<li class="list-group-item active" th:text="${titulo}"></li>
+		<li class="list-group-item" th:text="${usuario.username}"></li>
+		<li class="list-group-item" th:text="${usuario.password}"></li>
+		<li class="list-group-item" th:text="${usuario.email}"></li>
+		<li class="list-group-item" th:text="${usuario.identificador}"></li>
+		<li class="list-group-item"th:text="${usuario.cuenta}"></li>
+		<li class="list-group-item" th:text="${usuario.nombre}"></li>
+		<li class="list-group-item" th:text="${usuario.apellido}"></li>
+		<li class="list-group-item" th:text="${usuario.pais.id}"></li>
+		<li class="list-group-item" th:text="${usuario.pais.nombre}"></li>
+		<li class="list-group-item" th:text="${usuario.pais.codigo}"></li>
+		<li class="list-group-item" th:text="${#dates.format(usuario.fechaNacimiento,'dd-MM-yyyy')}"></li>
+		<li class="list-group-item" th:text="'Habilitado:' + ${usuario.habilitar}"></li>
+		<li class="list-group-item" th:text="'Genero:' + ${usuario.genero}"></li>
+		<li class="list-group-item" th:text="'Valor oculto:' + ${usuario.valorSecreto}"></li>
+	</ul>
+	<div>Roles</div>
+	<ul class="list-group">
+		<li class="list-group-item active" th:text="Roles"></li>
+		<li class="list-group-item" th:each="role: ${usuario.roles}"
+			th:text="${role.id} +':'+ ${role.nombre} +'=>'+ ${role.role}"></li>
+	</ul>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+</html>
