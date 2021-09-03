@@ -1,0 +1,1 @@
+insert into USER (id,name,role)values(1,'gio','admin');
